@@ -8,24 +8,30 @@ import {
 import App from './App';
 import Invoices from './routes/invoices';
 import Expenses from './routes/expenses';
+import Invoice from './routes/invoice';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App></App>}>
-        <Route path='/expenses' element={<Expenses></Expenses>}></Route>
-        <Route path='/invoices' element={<Invoices></Invoices>}>
-          <Route path=':invoiceId' element={<Invoices></Invoices>}></Route>
+      <Route path='/' element={<App />}>
+        <Route path='expenses' element={<Expenses />} />
+        <Route path='invoices' element={<Invoices />}>
+          <Route index element={
+            <main style={{ padding: '1rem' }}>
+              <p>Select an invoice</p>
+            </main>
+          }
+          />
+          <Route path=':invoiceId' element={<Invoice />} />
         </Route>
         <Route path='*' element={
-          <main style={{ padding: "1rem" }}>
+          <main style={{ padding: '1rem' }}>
             <p>There's nothing here!</p>
           </main>
-        }
-        >
-        </Route>
+          } 
+        />
       </Route>
     </Routes>
   </BrowserRouter>
