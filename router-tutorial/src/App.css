@@ -10,3 +10,8 @@
 .invoices-main {
   padding: 1rem 0;
 }
+
+.invoices-nav {
+  display: flex;
+  flex-direction: column;
+}
